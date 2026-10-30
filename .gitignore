@@ -51,3 +51,4 @@ build/
 hs_err_pid*
 replay_pid*
 **/firebase/*firebase-adminsdk*.json
+/tiendaTech/
