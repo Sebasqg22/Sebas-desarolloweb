@@ -63,7 +63,43 @@
     <div th:replace="~{consultas/fragmentos :: formConsulta('primary',#{consultas.derivadas},'/consultas/consultaDerivada')}"/>
     <div th:replace="~{consultas/fragmentos :: formConsulta('warning',#{consultas.jpql},'/consultas/consultaJPQL')}"/>
     <div th:replace="~{consultas/fragmentos :: formConsulta('success',#{consultas.sql},'/consultas/consultaSQL')}"/>
-    <div class='card'><p>Acá va su Práctica #2</p></div>
+    
+<div class="card p-2">
+    <div class="card-header bg-primary text-white text-center">
+        <h5 class="mb-0">Consulta Precio Mínimo</h5>
+    </div>
+
+    <div class="card-body">
+        <form th:action="@{/consultas/consultaPrecioMinimo}" method="post">
+
+            <div class="mb-3">
+                <label class="form-label">Precio mínimo</label>
+                <input type="number"
+                       name="precioMinimo"
+                       class="form-control"
+                       min="0"
+                       step="0.01"
+                       th:value="${precioMinimo}"
+                       required />
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Productos desde este precio</label>
+                <input type="text"
+                       class="form-control"
+                       value="Ordenados de menor a mayor"
+                       readonly />
+            </div>
+
+            <div class="text-center border-top pt-3">
+                <button type="submit" class="btn btn-primary">
+                    Consultar Precio Mínimo
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
 </section>
 
 <!-- fragmento 4 para mostrar el formulario factorizado -->

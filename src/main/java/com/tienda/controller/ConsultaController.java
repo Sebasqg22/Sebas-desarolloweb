@@ -55,5 +55,11 @@ public class ConsultaController {
         model.addAttribute("precioSup", precioSup);
         return "/consultas/listado";
     }
-
+    @PostMapping("/consultaPrecioMinimo")
+    public String consultaPrecioMinimo(@RequestParam() double precioMinimo, Model model) {
+        var productos = productoService.consultaPrecioMinimo(precioMinimo);
+        model.addAttribute("productos", productos);
+        model.addAttribute("precioMinimo", precioMinimo);
+        return "/consultas/listado";
+    }
 }

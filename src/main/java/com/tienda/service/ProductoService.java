@@ -81,5 +81,8 @@ public class ProductoService {
     public List<Producto> consultaSQL(double precioInf, double precioSup) {
         return productoRepository.consultaJPQL(precioInf, precioSup);
     }
-
+    @Transactional(readOnly = true)
+    public List<Producto> consultaPrecioMinimo(double precioMinimo) {
+    return productoRepository.findByPrecioGreaterThanEqualOrderByPrecioAsc(precioMinimo);
+}
 }
